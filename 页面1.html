@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关注塔菲喵~</title>
+    <script>
+        // 欢迎提示
+        alert("❤️欢迎光临ヾ(✿ﾟ▽ﾟ)ノ")
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+        }
+
+        .container {
+            background: white;
+            padding: 28px 24px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            width: 340px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px 14px;
+            margin: 16px auto;
+            display: block;
+            font-size: 16px;
+            border: 1px solid #d9d9d9;
+            border-radius: 999px;
+            background: #fbfbfb;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4d90fe;
+            background: #ffffff;
+            box-shadow: 0 0 0 6px rgba(77, 144, 254, 0.12);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 17px;
+            cursor: pointer;
+            border: none;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #4d90fe, #1e64d1);
+            color: white;
+            box-shadow: 0 10px 20px rgba(77, 144, 254, 0.24);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            opacity: 0.96;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>1 + 1 = ?</div>
+        <input id="answerInput" type="text" placeholder="请输入答案" autocomplete="off" />
+        <button id="submitBtn" type="button">确定</button>
+    </div>
+
+    <audio id="bgAudio" src="" loop></audio>
+
+    <script>
+        const answerInput = document.getElementById('answerInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const bgAudio = document.getElementById('bgAudio');
+
+        function handleSubmit() {
+            if (bgAudio.src !== '') {
+                bgAudio.play().catch(() => {
+                });
+            }
+            localStorage.setItem('playMusic', '1');
+
+            const answer = answerInput.value.trim();
+            if (answer === '2') {
+                window.location.href = '页面2.html';
+            } else {
+                alert('废物吗？');
+            }
+        }
+
+        submitBtn.addEventListener('click', handleSubmit);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关注塔菲喵~</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #e8f5ff;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .message {
+            font-size: 28px;
+            color: #1d3557;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        img {
+            max-width: 90%;
+            width: 320px;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+        }
+    </style>
+</head>
+<body>
+    <div class="message">你冯飞了喵~</div>
+    <img src="sz.gif" alt="">
+    <audio id="bgAudio" src="mp3.mp3" loop></audio>
+    <script>
+        const bgAudio = document.getElementById('bgAudio');
+        if (localStorage.getItem('playMusic') === '1') {
+            bgAudio.play().catch(() => {
+            });
+            localStorage.removeItem('playMusic');
+        }
+    </script>
+</body>
+</html>
